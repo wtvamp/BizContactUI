@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login/login.component';
 import { PrivateComponent } from './private/secured/secured.component';
+import { ContactComponent } from './private/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PrivateComponent } from './private/secured/secured.component';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    PrivateComponent
+    PrivateComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
