@@ -34,9 +34,13 @@ export class LoginService {
  
   }
  
-   checkCredentials(){
+  checkCredentials(){
     if (localStorage.getItem("user") === null){
         this._router.navigate(['login']);
+        return false;
+    }
+    else {
+      return true;
     }
   } 
 }

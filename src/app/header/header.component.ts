@@ -9,11 +9,14 @@ import {LoginService} from '../services/login.service';
 })
 export class HeaderComponent implements OnInit {
 
+  public loggedIn = false;
   constructor(
     private _service:LoginService){}
 
   ngOnInit() {
+    this.loggedIn = this._service.checkCredentials();
   }
+
   logout() {
     this._service.logout();
   }
