@@ -10,12 +10,14 @@ import {LoginService} from '../../services/login.service';
 })
 export class ContactComponent implements OnInit {
 
+  public contacts = [];
   constructor(
     private _service:LoginService, 
     private _service2:ContactService) { }
 
   ngOnInit() {
     this._service.checkCredentials();
+    this.contacts = this._service2.getContacts();
   }
   
   logout() {
