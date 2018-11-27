@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { LoginService, User } from '../../services/login.service';
 import { first } from 'rxjs/operators';
 

@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
@@ -36,7 +36,7 @@ export class LoginService {
       } else {
         return false;
       }
-  })); 
+    })); 
   }
 
   checkCredentials(){
