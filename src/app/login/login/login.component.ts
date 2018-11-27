@@ -1,5 +1,7 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService, User } from '../../services/login.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'login-form',
@@ -9,15 +11,24 @@ import { LoginService, User } from '../../services/login.service';
 })
 export class LoginComponent {
 
-  public user = new User('','');
-  public errorMsg = '';
+    public user = new User('','');
+    public errorMsg = '';
 
-    constructor(private _service:LoginService) {}
+    constructor(   
+        private router: Router,
+        private _service:LoginService) {}
  
     login() {
-        if(!this._service.login(this.user)){
-            this.errorMsg = 'Failed to login';
-        }
+        this._service.login(this.user)
+            .pipe(first())
+            .subscribe(
+                data => {
+                    this.router.navigate(['home']);
+                },
+                error => {
+                    this.errorMsg = error.message + ".  Please check console for more information.";
+                    console.error(error);
+                });
     }
   
 }
